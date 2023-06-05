@@ -1,2 +1,4 @@
-# pfpcb
-Point Free Python with Combinator Birds
+# cbirds
+## Point Free Python with Combinator Birds
+
+This module is intended for demonstration purposes rather than a functional or pratical use.
