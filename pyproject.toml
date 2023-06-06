@@ -1,0 +1,24 @@
+[project]
+name = "cbirds"
+version = "0.0.1"
+keywords = ["cbirds", "combinator", "birds", "combinator birds","logic"]
+
+authors = [
+  { name="João Alvim", email="joaoafonsoalvim@gmail.com" },
+]
+
+description = "Combinatory Birds"
+readme = "README.md"
+#requires-python = ">=3.5"
+requires-python = ">=3.7"
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+]
+dependencies = [
+    "pointfree"
+]
+
+
+[project.urls]
+repository = "https://github.com/jotaalvim/cbirds"
+"Bug Tracker" = "https://github.com/jotaalvim/cbirds/issues"

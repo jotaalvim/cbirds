@@ -312,9 +312,7 @@ robinstarstar :: (a -> c -> d -> b -> e) -> a -> b -> c -> d -> e
 def starling(f,g,x): return f (x, g(x))
 """
 S combinator - starling.
---
 -- Haskell: Applicative\'s @(\<*\>)@ on functions.
---
 -- Substitution.
 starling :: (a -> b -> c) -> (a -> b) -> a -> c
 """
@@ -324,11 +322,7 @@ starling :: (a -> b -> c) -> (a -> b) -> a -> c
 def starling_(f,g,h,x): return f (g(x), h(x))
 """
 S' combinator - starling prime - Turner\'s big phi.
--- Haskell: Applicative\'s 'liftA2' on functions (and similarly
--- Monad\'s 'liftM2').
---
 -- This is the same function as 'Data.Aviary.Birds.phoenix'.
---
 starling' :: (b -> c -> d) -> (a -> b) -> (a -> c) -> a -> d
 """
 
@@ -337,7 +331,6 @@ starling' :: (b -> c -> d) -> (a -> b) -> (a -> c) -> a -> d
 def thrush(x,f): return f(x)
 """
 T combinator - thrush.
--- Haskell @(\#)@ in Peter Thiemann\'s Wash, reverse application.
 thrush :: a -> (a -> b) -> b
 """
 
@@ -404,6 +397,8 @@ def take(n,l): return l[0:n]
 # function that return the first half of a list
 #pfhalf: return starling (cardinal (take), cardinal (div,2) * pflen)
 pfhalf = starling (cardinal (take), cardinal (div,2) * pflen)
+
+def meta(lista)
+    k = len(lista) // 2
+    return lista[0:k]
 #-------------------------------------------------------------------------------
-
-
