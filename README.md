@@ -4,7 +4,7 @@
 ---
 ## Combinator Birds
 
-> This is a port of the haskell package [Data.Aviary.Birds][haskell-docs](https://hackage.haskell.org/package/data-aviary-0.4.0/docs/Data-Aviary-Birds.html).
+> This is a port of the haskell package [Data.Aviary.Birds](https://hackage.haskell.org/package/data-aviary-0.4.0/docs/Data-Aviary-Birds.html).
 
 ``cbirds`` is a module intended for demonstration purposes rather than a functional or pratical use.
 
@@ -14,6 +14,8 @@ module that allows us, e.g., to compose functions smoothly and enable partial ap
 
 ## Examples
 
+Let's define a function keephalf, keephalf is a function that return the first half of a list. 
+The first step is to define our own (@pointfree) version of length, integer divisionand and take function but whith.
 ```python
 @pointfree
 def pflen(l): return len(l) 
@@ -21,8 +23,14 @@ def pflen(l): return len(l)
 def div(a,x): return a // x
 @pointfree
 def take(n,l): return l[0:n]
+```
 
-# function that return the first half of a list
+We can use the starling bird,it passes a value straight and also through a function to another function of arity 2, and the
+caridinal that swaps the argument order.
+```python
+def cardinal(f,x,y): return f (y,x)
+def starling(f,g,x): return f (x) (g(x))
+
 keephalf = starling (cardinal (take), cardinal (div,2) * pflen)
 ```
 
