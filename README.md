@@ -1,6 +1,4 @@
 # cbirds
-
-![](https://raw.githubusercontent.com/jotaalvim/cbirds/main/cbirds_logo.png)
 ![](cbirds_logo.png)
 ---
 ## Combinator Birds
@@ -20,16 +18,9 @@ Let's define a function keephalf, keephalf is a function that return the first h
 >>> keephalf([1,2,3,4,5,6,7,8,9,10])
 [1, 2, 3, 4, 5]
 ```
-
-The first step is to define our own (@pointfree) version of length, integer division and and take.
-```python
-@pointfree
-def pflen(l): return len(l) 
-@pointfree
-def div(a,x): return a // x
-@pointfree
-def take(n,l): return l[0:n]
-```
+In this example the * symbol is means function composition (from the ``pointfree`` module). For the ones wanting to
+reach te highest level of bird use, theres a combinator that composes functions: the **bluebird** but for reasons of
+readability we'll use * ,for now.
 
 The most intuitive birds to use in this example is the **phoenix**.
 The phoenix passes a single value through two different functions, 
@@ -53,7 +44,7 @@ caridinal that swaps the argument order.
 keephalf2 = starling (cardinal (take), cardinal (div,2) * pflen)
 ```
 
-We can also use the **warbler** and the **cardinal__**. The **warbler** is a elementary duplicator, the **cardinal__**
+We can also use the **warbler** and the **cardinal__**. The warbler is a elementary duplicator, the cardinal__
 pass first argument straight, and second argument through a function,
 to a two-parameter function
 
@@ -62,4 +53,18 @@ to a two-parameter function
 #warbler x y = x y y
 keephalf3 = warbler (cardinal_ (take , cardinal(div, 2) * pflen))
 ```
+
+
+
+
+The first step is to define our own (@pointfree) version of length, integer division and and take.
+```python
+@pointfree
+def pflen(l): return len(l) 
+@pointfree
+def div(a,x): return a // x
+@pointfree
+def take(n,l): return l[0:n]
+```
+
 
