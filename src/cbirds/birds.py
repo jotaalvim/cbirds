@@ -1,6 +1,5 @@
 from pointfree import *
 
-
 @pointfree
 def idiot(a): return a 
 """
@@ -309,7 +308,7 @@ robinstarstar :: (a -> c -> d -> b -> e) -> a -> b -> c -> d -> e
 """
 
 @pointfree
-def starling(f,g,x): return f (x, g(x))
+def starling(f,g,x): return f (x) (g(x))
 """
 S combinator - starling.
 -- Haskell: Applicative\'s @(\<*\>)@ on functions.
@@ -395,10 +394,10 @@ def div(a,x): return a // x
 def take(n,l): return l[0:n]
 
 # function that return the first half of a list
-#pfhalf: return starling (cardinal (take), cardinal (div,2) * pflen)
-pfhalf = starling (cardinal (take), cardinal (div,2) * pflen)
+keephalf = starling (cardinal (take), cardinal (div,2) * pflen)
 
-def meta(lista)
-    k = len(lista) // 2
-    return lista[0:k]
-#-------------------------------------------------------------------------------
+#keepHalfCombi = phoenix take ((`div` 2) . length) id
+
+keephalf2 = phoenix (take, cardinal (div,2) * pflen, idiot)
+
+keephalf3 = warbler (cardinal_ (take , cardinal(div, 2) * pflen))

@@ -1,6 +1,6 @@
 # cbirds
 
-![cbirds'logo](cbirds_logo.png)
+![](https://raw.githubusercontent.com/jotaalvim/cbirds/main/cbirds_logo.png)
 ---
 ## Combinator Birds
 
@@ -15,7 +15,12 @@ module that allows us, e.g., to compose functions smoothly and enable partial ap
 ## Examples
 
 Let's define a function keephalf, keephalf is a function that return the first half of a list. 
-The first step is to define our own (@pointfree) version of length, integer divisionand and take function but whith.
+```
+>>> keephalf([1,2,3,4,5,6,7,8,9,10])
+[1, 2, 3, 4, 5]
+```
+
+The first step is to define our own (@pointfree) version of length, integer division and and take.
 ```python
 @pointfree
 def pflen(l): return len(l) 
@@ -25,16 +30,33 @@ def div(a,x): return a // x
 def take(n,l): return l[0:n]
 ```
 
-We can use the starling bird,it passes a value straight and also through a function to another function of arity 2, and the
+The most intuitive birds to use in this example is the **phoenix**.
+The phoenix passes a single value through two different functions, 
+and pass the results to a two-parameter function. We'll also use the **idiot** bird, that is the identity function.
+
+```
+#phoenix x y z w = x (y w) (z w)
+#idiot x = x
+
+keephalf = phoenix (take, cardinal (div,2) * pflen, idiot)
+```
+
+Let's try different birds now, let's use the **starling** and the **cardinal** .
+The starling passes a value straight and also through a function to another function of arity 2, and the
 caridinal that swaps the argument order.
+
 ```python
-def cardinal(f,x,y): return f (y,x)
-def starling(f,g,x): return f (x) (g(x))
+#starling = x y z = x z (y z)
+#cardinal x y z = x (z y)
 
-keephalf = starling (cardinal (take), cardinal (div,2) * pflen)
+keephalf2 = starling (cardinal (take), cardinal (div,2) * pflen)
 ```
 
+We can also use the **warbler** and the **cardinal__**. The **warbler** is a elementary duplicator, the **cardinal__**
+pass first argument straight, and second argument through a function,
+to a two-parameter function
+
 ```
->>> keephalf([1,2,3,4,5,6,7,8,9,10])
-[1, 2, 3, 4, 5]
+keephalf3 = warbler (cardinal_ (take , cardinal(div, 2) * pflen))
 ```
+
