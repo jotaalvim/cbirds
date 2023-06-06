@@ -1,5 +1,7 @@
 # cbirds
-![](cbirds_logo.png)
+
+![](https://raw.githubusercontent.com/jotaalvim/cbirds/main/cbirds_logo.png?token=GHSAT0AAAAAACBVWHWHMKEHXZMHLXIF4RICZD7R4PA)
+
 ---
 ## Combinator Birds
 
@@ -18,11 +20,25 @@ Let's define a function keephalf, keephalf is a function that return the first h
 >>> keephalf([1,2,3,4,5,6,7,8,9,10])
 [1, 2, 3, 4, 5]
 ```
-In this example the * symbol is means function composition (from the ``pointfree`` module). For the ones wanting to
-reach te highest level of bird use, theres a combinator that composes functions: the **bluebird** but for reasons of
-readability we'll use * ,for now.
 
-The most intuitive birds to use in this example is the **phoenix**.
+I'll start by defining our own (@pointfree) version of length, integer division and and take, 
+these functions are going to useful in the making of keephalf.
+
+```python
+@pointfree
+def pflen(l): return len(l) 
+@pointfree
+def div(a,x): return a // x
+@pointfree
+def take(n,l): return l[0:n]
+```
+
+Although the code below does not look like python I can guarantee you that it is!
+In the examples bellow the * symbol means function composition (from the ``pointfree`` module). For the ones wanting to
+reach the highest level of bird use, there's a combinator that composes functions: the **bluebird** but for reasons of
+readability we'll use * ,for now. 
+
+The most intuitive birds to use in the making of keephalf is the **phoenix**.
 The phoenix passes a single value through two different functions, 
 and pass the results to a two-parameter function. We'll also use the **idiot** bird, that is the identity function.
 
@@ -35,7 +51,7 @@ keephalf = phoenix (take, cardinal (div,2) * pflen, idiot)
 
 Let's try different birds now, let's use the **starling** and the **cardinal** .
 The starling passes a value straight and also through a function to another function of arity 2, and the
-caridinal that swaps the argument order.
+cardinal that swaps the argument order.
 
 ```python
 #starling = x y z = x z (y z)
@@ -53,18 +69,3 @@ to a two-parameter function
 #warbler x y = x y y
 keephalf3 = warbler (cardinal_ (take , cardinal(div, 2) * pflen))
 ```
-
-
-
-
-The first step is to define our own (@pointfree) version of length, integer division and and take.
-```python
-@pointfree
-def pflen(l): return len(l) 
-@pointfree
-def div(a,x): return a // x
-@pointfree
-def take(n,l): return l[0:n]
-```
-
-
