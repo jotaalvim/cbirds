@@ -1,6 +1,7 @@
 # cbirds
 
 ![](https://raw.githubusercontent.com/jotaalvim/cbirds/main/cbirds_logo.png)
+![](cbirds_logo.png)
 ---
 ## Combinator Birds
 
@@ -34,7 +35,7 @@ The most intuitive birds to use in this example is the **phoenix**.
 The phoenix passes a single value through two different functions, 
 and pass the results to a two-parameter function. We'll also use the **idiot** bird, that is the identity function.
 
-```
+```python
 #phoenix x y z w = x (y w) (z w)
 #idiot x = x
 
@@ -56,7 +57,9 @@ We can also use the **warbler** and the **cardinal__**. The **warbler** is a ele
 pass first argument straight, and second argument through a function,
 to a two-parameter function
 
-```
+```python
+#cardinal_ x y z w = x (y w) z
+#warbler x y = x y y
 keephalf3 = warbler (cardinal_ (take , cardinal(div, 2) * pflen))
 ```
 
