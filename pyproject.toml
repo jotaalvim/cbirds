@@ -1,6 +1,6 @@
 [project]
 name = "cbirds"
-version = "0.0.9"
+version = "0.0.12"
 keywords = ["cbirds", "combinator", "birds", "combinator birds","logic"]
 
 authors = [

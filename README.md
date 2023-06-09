@@ -1,17 +1,21 @@
 # cbirds
 
-![](https://raw.githubusercontent.com/jotaalvim/cbirds/main/cbirds_logo.png?token=GHSAT0AAAAAACBVWHWHMKEHXZMHLXIF4RICZD7R4PA)
+![](https://github.com/jotaalvim/cbirds/blob/main/cbirds_logo.png?raw=true)
 
 ---
 ## Combinator Birds
 
-> This is a port of the haskell package [Data.Aviary.Birds](https://hackage.haskell.org/package/data-aviary-0.4.0/docs/Data-Aviary-Birds.html).
+> This is a port of the haskell package [Data.Aviary.Birds](https://hackage.haskell.org/package/data-aviary-0.4.0/docs/Data-Aviary-Birds.html). Please check this out if you want to see more details about the birds.
 
-``cbirds`` is a module intended for demonstration purposes rather than a functional or pratical use.
+``cbirds`` is a module intended for demonstration purposes rather than functional or practical use. The objective is to
+support the **combinator birds** in a pointfree style programming.
 
 The only way to make sense of function combinators in python would be in a pointfree context. 
 Lucky for us, there is a [pointfree](https://pypi.org/project/pointfree/)
 module that allows us, e.g., to compose functions smoothly and enable partial application of functions and methods. 
+
+Pointfree style has a few downsides. I'm afraid this is an unsuccessful attempt to join python pointfree and the 
+use combinator birds. It is just a matter of time before it becomes an unreadable mess.
 
 ## Examples
 
